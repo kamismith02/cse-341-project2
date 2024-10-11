@@ -2,7 +2,7 @@ const express = require('express');
 const { body, param } = require('express-validator');
 const router = express.Router();
 
-const usersController = require('../controllers/users');
+const usersController = require('../controllers/userController');
 
 // Validation rules for creating a user
 const userValidationRules = [
