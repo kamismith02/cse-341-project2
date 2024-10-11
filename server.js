@@ -1,25 +1,28 @@
 // server.js
 const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-const productRoutes = require('./routes/productRoutes');
-
-dotenv.config();
-
+const mongodb = require('./data/Product');
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const port = process.env.PORT || 5000;
+
 app.use(bodyParser.json());
-app.use('/api/products', productRoutes);
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+    );
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    next();
+})
+app.use('/', require('./routes'));
 
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => {
-        console.log('Connected to MongoDB');
-        app.listen(process.env.PORT || 5000, () => {
-            console.log(`Server is running on port ${process.env.PORT || 5000}`);
-        });
-    })
-    .catch(error => console.error('MongoDB connection error:', error.message));
+mongodb.initDb((err) => {
+    if(err) {
+        console.log(err);
+    }
+    else {
+        app.listen(port, () => {console.log(`Database is listening and node running on port ${port}`)});
+    }
+});

@@ -1,5 +1,22 @@
-### POST Create a New Product
-POST http://localhost:5000/api/products
+# Get all products (localhost)
+GET http://localhost:5000/products
+Content-Type: application/json
+
+###
+
+# Get API Documentation (localhost)
+GET http://localhost:5000/api-docs
+
+###
+
+# Get a single product by ID (localhost)
+GET http://localhost:5000/products/66f4c270b530905c84719dec
+Content-Type: application/json
+
+###
+
+# Create a new product (localhost)
+POST http://localhost:5000/products
 Content-Type: application/json
 
 {
@@ -11,6 +28,76 @@ Content-Type: application/json
   "supplier": "TechStore"
 }
 
-### GET All Products
-GET http://localhost:5000/api/products
-Accept: application/json
+###
+
+# Update a product (localhost)
+PUT http://localhost:5000/products/67016c399dccf1699ec8fa2e
+Content-Type: application/json
+
+{
+  "name": "Updated Laptop",
+  "description": "A high-end gaming laptop with RTX 3080",
+  "quantity": 5,
+  "price": 1999.99,
+  "category": "Electronics",
+  "supplier": "Updated TechStore"
+}
+
+###
+
+# Delete a product (localhost)
+DELETE http://localhost:5000/products/67016c399dccf1699ec8fa2e
+Content-Type: application/json
+
+###
+
+# Get all products (published link)
+GET https://project2-kbfe.onrender.com/products
+Content-Type: application/json
+
+###
+
+# Get API Documentation (published link)
+GET https://project2-kbfe.onrender.com/api-docs
+
+###
+
+# Get a single product by ID (published link)
+GET https://project2-kbfe.onrender.com/products/66f4c270b530905c84719dec
+Content-Type: application/json
+
+###
+
+# Create a new product (published link)
+POST https://project2-kbfe.onrender.com/products
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "description": "A high-end gaming laptop",
+  "quantity": 10,
+  "price": 1499.99,
+  "category": "Electronics",
+  "supplier": "TechStore"
+}
+
+###
+
+# Update a product (published link)
+PUT https://project2-kbfe.onrender.com/products/67016e595e15ed45c841c98b
+Content-Type: application/json
+
+{
+  "name": "Updated Laptop",
+  "description": "A high-end gaming laptop with RTX 3080",
+  "quantity": 5,
+  "price": 1999.99,
+  "category": "Electronics",
+  "supplier": "Updated TechStore"
+}
+
+###
+
+# Delete a product (published link)
+DELETE https://project2-kbfe.onrender.com/products/67016e595e15ed45c841c98b
+Content-Type: application/json
