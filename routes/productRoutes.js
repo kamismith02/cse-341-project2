@@ -2,7 +2,7 @@ const express = require('express');
 const { body, param } = require('express-validator');
 const router = express.Router();
 
-const productsController = require('../controllers/productControllers');
+const productsController = require('../controllers/productController');
 
 // Validation rules for creating and updating a product
 const productValidationRules = [
