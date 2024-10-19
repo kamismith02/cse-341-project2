@@ -1,11 +1,11 @@
 const { validationResult } = require('express-validator');
-const mongodb = require('../data/Product');
+const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
     //#swagger.tags=['Products']
     try {
-        const result = await mongodb.getDatabase().db().collection('products').find();
+        const result = await mongodb.getDatabase().db('project2').collection('products').find();
         const products = await result.toArray();
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(products);
@@ -23,7 +23,7 @@ const getSingle = async (req, res) => {
 
     try {
         const productId = new ObjectId(req.params.id);
-        const product = await mongodb.getDatabase().db().collection('products').findOne({ _id: productId });
+        const product = await mongodb.getDatabase().db('project2').collection('products').findOne({ _id: productId });
 
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
@@ -53,7 +53,7 @@ const createProduct = async (req, res) => {
     };
 
     try {
-        const response = await mongodb.getDatabase().db().collection('products').insertOne(product);
+        const response = await mongodb.getDatabase().db('project2').collection('products').insertOne(product);
         res.status(201).json({ message: 'Product created', productId: response.insertedId });
     } catch (error) {
         res.status(500).json({ message: 'Some error occurred while creating the product', error: error.message });
@@ -78,7 +78,7 @@ const updateProduct = async (req, res) => {
             userId: new ObjectId(req.body.userId)  // ensure userId is included in updates
         };
 
-        const response = await mongodb.getDatabase().db().collection('products').replaceOne({ _id: productId }, product);
+        const response = await mongodb.getDatabase().db('project2').collection('products').replaceOne({ _id: productId }, product);
 
         if (response.modifiedCount === 0) {
             return res.status(404).json({ message: 'Product not found or no changes made' });
@@ -100,7 +100,7 @@ const deleteProduct = async (req, res) => {
 
     try {
         const productId = new ObjectId(req.params.id);
-        const response = await mongodb.getDatabase().db().collection('products').deleteOne({ _id: productId });
+        const response = await mongodb.getDatabase().db('project2').collection('products').deleteOne({ _id: productId });
 
         if (response.deletedCount === 0) {
             return res.status(404).json({ message: 'Product not found' });

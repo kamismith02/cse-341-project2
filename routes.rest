@@ -10,7 +10,7 @@ GET http://localhost:5000/api-docs
 ###
 
 # Get a single product by ID (localhost)
-GET http://localhost:5000/products/66f4c270b530905c84719dec
+GET http://localhost:5000/products/6708a8eba67c98df7a374963
 Content-Type: application/json
 
 ###
@@ -31,7 +31,7 @@ Content-Type: application/json
 ###
 
 # Update a product (localhost)
-PUT http://localhost:5000/products/67016c399dccf1699ec8fa2e
+PUT http://localhost:5000/products/6713e0fe128a9bcedb2f6205
 Content-Type: application/json
 
 {
@@ -46,7 +46,7 @@ Content-Type: application/json
 ###
 
 # Delete a product (localhost)
-DELETE http://localhost:5000/products/67016c399dccf1699ec8fa2e
+DELETE http://localhost:5000/products/6713e0fe128a9bcedb2f6205
 Content-Type: application/json
 
 ###
