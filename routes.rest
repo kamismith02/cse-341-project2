@@ -52,24 +52,24 @@ Content-Type: application/json
 ###
 
 # Get all products (published link)
-GET https://project2-kbfe.onrender.com/products
+GET https://project2-curg.onrender.com/products
 Content-Type: application/json
 
 ###
 
 # Get API Documentation (published link)
-GET https://project2-kbfe.onrender.com/api-docs
+GET https://project2-curg.onrender.com/api-docs
 
 ###
 
 # Get a single product by ID (published link)
-GET https://project2-kbfe.onrender.com/products/66f4c270b530905c84719dec
+GET https://project2-curg.onrender.com/products/66f4c270b530905c84719dec
 Content-Type: application/json
 
 ###
 
 # Create a new product (published link)
-POST https://project2-kbfe.onrender.com/products
+POST https://project2-curg.onrender.com/products
 Content-Type: application/json
 
 {
@@ -84,7 +84,7 @@ Content-Type: application/json
 ###
 
 # Update a product (published link)
-PUT https://project2-kbfe.onrender.com/products/67016e595e15ed45c841c98b
+PUT https://project2-curg.onrender.com/products/67016e595e15ed45c841c98b
 Content-Type: application/json
 
 {
@@ -99,5 +99,5 @@ Content-Type: application/json
 ###
 
 # Delete a product (published link)
-DELETE https://project2-kbfe.onrender.com/products/67016e595e15ed45c841c98b
+DELETE https://project2-curg.onrender.com/products/67016e595e15ed45c841c98b
 Content-Type: application/json
