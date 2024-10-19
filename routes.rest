@@ -101,3 +101,48 @@ Content-Type: application/json
 # Delete a product (published link)
 DELETE https://project2-curg.onrender.com/products/67016e595e15ed45c841c98b
 Content-Type: application/json
+
+###
+###
+
+# Get all users (localhost)
+GET http://localhost:5000/users
+Content-Type: application/json
+
+###
+
+# Get a single user by ID (localhost)
+GET http://localhost:5000/users/6708a880a67c98df7a36f015
+Content-Type: application/json
+
+###
+
+# Create a new user (localhost)
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "name": "New User",
+  "email": "newuser@example.com",
+  "password": "securepassword123"
+}
+
+###
+
+# Update a user (published link)
+PUT http://localhost:5000/users/671418e08b5a50fde94114bf
+Content-Type: application/json
+
+{
+  "name": "Updated User",
+  "email": "updateduser@example.com",
+  "password": "securepassword123"
+}
+
+###
+
+# Delete a user (localhost)
+DELETE http://localhost:5000/users/671418e08b5a50fde94114bf
+Content-Type: application/json
+
+###

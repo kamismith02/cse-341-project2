@@ -37,6 +37,7 @@ const getSingle = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
+    //#swagger.tags=['Products']
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -61,6 +62,7 @@ const createProduct = async (req, res) => {
 };
 
 const updateProduct = async (req, res) => {
+    //#swagger.tags=['Products']
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -92,7 +94,7 @@ const updateProduct = async (req, res) => {
 
 
 const deleteProduct = async (req, res) => {
-    //#swagger.tags=['products']
+    //#swagger.tags=['Products']
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });

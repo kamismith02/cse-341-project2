@@ -6,7 +6,7 @@ const doc = {
         description: 'Products Api'
     },
     host: 'project2-kbfe.onrender.com',
-    schemes: ['https']
+    schemes: ['http, https']
 };
 
 const outputFile = './swagger.json';

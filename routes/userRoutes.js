@@ -23,6 +23,8 @@ router.get('/:id', userIdValidation, usersController.getSingleUser);
 
 router.post('/', userValidationRules, usersController.createUser);
 
+router.put('/:id', userIdValidation, usersController.updateUser);
+
 router.delete('/:id', userIdValidation, usersController.deleteUser);
 
 module.exports = router;
