@@ -5,6 +5,7 @@ const mongodb = require('./data/database');
 const app = express();
 const passport = require('passport');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
@@ -16,6 +17,10 @@ app
     secret: "secret",
     resave: false,
     saveUninitialized: true ,
+    store: MongoStore.create({
+      mongoUrl: process.env.DB_URI,  // MongoDB connection URI
+      dbName: process.env.DB_NAME    // Database name
+    }),
   }))
   // This is the basic express session ({...}) initialization
   .use(passport.initialize())
