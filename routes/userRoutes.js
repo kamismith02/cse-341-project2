@@ -4,6 +4,8 @@ const router = express.Router();
 
 const usersController = require('../controllers/userController');
 
+const { isAuthenticated } = require('../middleware/authenticate');
+
 // Validation rules for creating a user
 const userValidationRules = [
     body('name').notEmpty().withMessage('Name is required'),
@@ -21,10 +23,10 @@ router.get('/', usersController.getAllUsers);
 
 router.get('/:id', userIdValidation, usersController.getSingleUser);
 
-router.post('/', userValidationRules, usersController.createUser);
+router.post('/', isAuthenticated, userValidationRules, usersController.createUser);
 
-router.put('/:id', userIdValidation, usersController.updateUser);
+router.put('/:id', isAuthenticated, userIdValidation, usersController.updateUser);
 
-router.delete('/:id', userIdValidation, usersController.deleteUser);
+router.delete('/:id', isAuthenticated, userIdValidation, usersController.deleteUser);
 
 module.exports = router;

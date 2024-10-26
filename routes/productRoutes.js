@@ -4,6 +4,8 @@ const router = express.Router();
 
 const productsController = require('../controllers/productController');
 
+const { isAuthenticated } = require('../middleware/authenticate');
+
 // Validation rules for creating and updating a product
 const productValidationRules = [
     body('name').notEmpty().withMessage('Product name is required'),
@@ -24,10 +26,10 @@ router.get('/', productsController.getAll);
 
 router.get('/:id', productIdValidation, productsController.getSingle);
 
-router.post('/', productValidationRules, productsController.createProduct);
+router.post('/', isAuthenticated, productValidationRules, productsController.createProduct);
 
-router.put('/:id', [...productIdValidation, ...productValidationRules], productsController.updateProduct);
+router.put('/:id', isAuthenticated, [...productIdValidation, ...productValidationRules], productsController.updateProduct);
 
-router.delete('/:id', productIdValidation, productsController.deleteProduct);
+router.delete('/:id', isAuthenticated, productIdValidation, productsController.deleteProduct);
 
 module.exports = router;
