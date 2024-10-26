@@ -39,7 +39,7 @@ app
     next();
   })
   .use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', "PATCH"]}))
-  .use(cors({ origin: '*'}))
+  .use(cors({ origin: 'https://project2-curg.onrender.com'}))
   .use('/', require('./routes'));
 
   passport.use(new GitHubStrategy({
