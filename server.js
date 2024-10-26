@@ -1,4 +1,6 @@
 // server.js
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./data/database');
@@ -62,7 +64,7 @@ passport.deserializeUser((user, done) => {
 app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
 
 app.get('/github/callback', passport.authenticate('github', {
-    failuretodirect: 'api-docs', session: false}),
+    failureRedirect: 'api-docs', session: false}),
     (req, res) => {
         req.session.user = req.user;
         res.redirect('/');
