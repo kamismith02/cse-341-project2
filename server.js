@@ -20,7 +20,7 @@ app
     resave: false,
     saveUninitialized: true ,
     store: MongoStore.create({
-      mongoUrl: process.env.DB_URI,  // MongoDB connection URI
+      mongoUrl: process.env.MONGODB_URI,
       dbName: process.env.DB_NAME    // Database name
     }),
   }))
